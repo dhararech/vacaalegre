@@ -176,3 +176,20 @@ nav{
     cursor: pointer;
     transition: all .3s ease;
 }
+.btn-contato::before{
+    content: "➝";
+    width: 42px;
+    height: 42px;
+    background-color: #d7a8ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .4s ease;
+}
+.btn-contato:hover::before{
+    transform: translateX(10px);
+}
+.btn-contato:hover{
+    transform: translateY(-2px);
+}
