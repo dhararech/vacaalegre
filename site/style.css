@@ -299,3 +299,29 @@ nav{
     gap: 8px;
     align-items: center;
 }
+footer{
+    background-color: #f6f4ff;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(108,43,255,0.08);
+}
+.footer-copy{
+    color: #5519ee;
+    letter-spacing: 5px;
+}
+.footer-socials{
+    display: flex;
+    gap: 14px;
+}
+.footer-socials a{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(108, 43, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #24105c;
+    text-decoration: none;
+}
