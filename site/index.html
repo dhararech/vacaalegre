@@ -130,7 +130,7 @@
           </div>  
 
         <div class="carousel-controls">
-            <button class="carousel-btn" id="prevBtn">&#8592;</button>
+            <button class="carousel-btn" id="prevBtn" disabled>&#8592;</button>
             <div class="carousel-dots" id="carouselDots"></div>
             <button class="carousel-btn" id="nextBtn">&#8594;</button>
         </div> 
@@ -159,6 +159,36 @@
 
         let current = 0
         const total = () => cards.length - visible() + 1
+
+        function buildDots(){
+            dotwrap.innerHTML = ' '
+            for(let i = 0; i<total(); i++){
+                const d = document.createElement('span')
+                d.className = 'dot' + (i === current ? 'active' : '')
+                d.addEventListener('click', ()=> goTo(i))
+                dotwrap.appendChild(d)
+            }
+        }
+        function goTo(idx){
+            current = Math.max(0, Math.min(idx, total() - 1))
+            const cardWidth = cards[0].offsetWidth + 20
+
+            track.style.transform = `translateX(-${current * cardWidth}px)`
+            prevBtn.disabled = current === 0
+            nextBtn.disabled = current >= total() - 1
+            dotwrap.querySelectorAll('.dot').forEach((d,i)=>
+                d.classList.toggle('active', i === current)
+            )
+        }
+
+        prevBtn.addEventListener('click', () => goTo(current - 1))
+        nextBtn.addEventListener('click', () => goTo(current + 1))
+
+        buildDots()
+        Window.addEventListener('resize', ()=>{
+            buildDots()
+        })
+        goTo(0)
 
     </script>
 

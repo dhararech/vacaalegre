@@ -325,3 +325,13 @@ footer{
     color: #24105c;
     text-decoration: none;
 }
+.dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d8d0f0;
+}
+.dot.active{
+    background-color: #a78bfa;
+    transform: scale(1.35);
+}
